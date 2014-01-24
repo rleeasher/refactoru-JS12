@@ -16,10 +16,24 @@
   <!-- Body Start -->
   <body>
   <!-- main header -->
-  <div class="main-header">
-    <h1 class="header-text"><a id='header-link' href="#">Quottr</a></h1>
+  <div id="main-header">
+    <h1 class="header-text remove-css"><a id='header-link' href="#">Quottr</a></h1>
+    <div class="header-sublist-container">
+        <div class="header-sublist remove-css"><a id='random-quote' href="#">Random</a></div>
+        <div class="star-container">
+          <img class="star-header" src="grey-star.png">
+          <img class="star-header" src="grey-star.png">
+          <img class="star-header" src="grey-star.png">
+          <img class="star-header" src="grey-star.png">
+          <img class="star-header" src="grey-star.png">  
+        </div> 
+    </div>
   </div>
   <!-- dropdown form -->
+
+
+
+  <!-- side form -->
   <div id="input-form">
       <form id="submit-form">
         <div class="form-group">
@@ -63,7 +77,7 @@
 
       <!-- visible base ones -->
       <!-- quote 1 -->
-      <div class="quote-box" id="qid-1">
+      <div class="quote-box" data-rating="s3" id="qid-1">
         <div class = "quote-author float-left">
           <q class="quote">
             Children need encouragement. So if a kid gets an answer right, tell him it was a lucky guess. That way, he develops a good, lucky feeling.
@@ -84,7 +98,7 @@
       </div>
 
        <!-- quote 2 -->
-      <div class="quote-box" id="qid-2">
+      <div class="quote-box" data-rating="s3" id="qid-2">
         <div class = "quote-author float-left">
           <q class="quote">
             I may be drunk, Miss, but in the morning I will be sober and you will still be ugly.
@@ -105,7 +119,7 @@
       </div>
 
        <!-- quote 3 -->
-      <div class="quote-box" id="qid-3">
+      <div class="quote-box" data-rating="s4" id="qid-3">
         <div class = "quote-author float-left">
           <q class="quote">
             You can always count on Americans to do the right thing - after they've tried everything else.
@@ -126,7 +140,7 @@
       </div>
 
              <!-- quote 4 -->
-      <div class="quote-box" id="qid-4">
+      <div class="quote-box" data-rating="s4" id="qid-4">
         <div class = "quote-author float-left">
           <q class="quote">
             We become what we behold. We shape our tools and then our tools shape us.
@@ -147,7 +161,7 @@
       </div>
 
                    <!-- quote 5 -->
-      <div class="quote-box" id="qid-5">
+      <div class="quote-box" data-rating="s5" id="qid-5">
         <div class = "quote-author float-left">
           <q class="quote">
             Diaper backward spells repaid. Think about it.
@@ -168,7 +182,7 @@
       </div>
 
                          <!-- quote 6 -->
-      <div class="quote-box" id="qid-6">
+      <div class="quote-box" data-rating="s4" id="qid-6">
         <div class = "quote-author float-left">
           <q class="quote">
             If you go parachuting, and your parachute doesn't open, and you friends are all watching you fall, I think a funny gag would be to pretend you were swimming.

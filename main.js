@@ -2,7 +2,7 @@ $(document).on('ready', function(){
 
 	var totalQuotes = 6;
 
-	quote = function(innerText,author,submitDate,rating,qid){
+	var quote = function(innerText,author,submitDate,rating,qid){
 		this.innerText = innerText;
 		this.author = author;
 		this.submitDate = submitDate;
@@ -63,12 +63,8 @@ $(document).on('ready', function(){
 	var showAll = function () {
 
 		$('#content').find('[id^=qid]').slideDown(750);
+		$(this).closest('body').find('.star-container').children().attr('src','grey-star.png')
 		$('.filter-box').hide(750);
-		// var authors = $('#content').find('[id^=qid]').find('.author-link');
-		// console.log(authors.length);
-		// for (var i = 0; i < authors.length; i++) {
-		// 	authors.eq([i]).closest('[id^=qid]').show();
-		// };
 
 	};
 
@@ -96,16 +92,11 @@ $(document).on('ready', function(){
 	//rate the quote
 	var rateQuote = function () {
 
-		var clearobj = $(this).siblings(':last')
-
-
-		for (var i=0;i<5;i++) {
-			clearobj.find(".star").attr('src','grey-star.png');
-			clearobj = clearobj.prev();
-		}
+		$(this).closest('.star-rating').find('.star').attr('src','grey-star.png');
 
 		var counter=$(this).index() + 1;
 
+		$(this).closest('[id^=qid]').attr('data-rating','s'+counter);
 
 		var obj = $(this);
 		for (var i=0;i<counter;i++) {
@@ -126,6 +117,39 @@ $(document).on('ready', function(){
 		}
 	});
 
+	var randQuote = function () {
+		var randomNumber = Math.floor(Math.random()*totalQuotes+1);
+
+		$('#content').find('[id^=qid]').attr('class','quote-box');
+		$('#content').find('#qid-'+randomNumber).attr('class','quote-box active');
+		$('#content').find('[id^=qid]').hide();
+		$('#content').find('.active').show();
+
+		$('.filter-box').find('.author-filter').text('Random Quote');
+		$('.filter-box').show(750).css('display','inline');
+
+	};
+
+	var filterQuote = function () {
+
+		$('.star-container').children().attr('src','grey-star.png');
+
+
+
+		var counter=$(this).index() + 1;
+		var obj = $(this);
+
+		for (var i=0;i<counter;i++) {
+			obj.attr('src','gold-star.png');
+			obj = obj.prev();
+		}
+
+		$('#content').find('[id^=qid]').hide();
+		$('#content').find('[data-rating="s'+counter+'"]').show();
+		$('.filter-box').find('.author-filter').text(counter+' star ratings shown');
+		$('.filter-box').show(750).css('display','inline');
+
+	}
 
 	//validator
 	$('#submit-form').validate({
@@ -146,6 +170,8 @@ $(document).on('ready', function(){
 	$(document).on('click','.inline-list', rateQuote);
 	$(document).on('click','#header-link', showAll);
 	$(document).on('click','#close-filter', showAll);
+	$(document).on('click','#random-quote', randQuote);
+	$(document).on('click','.star-header', filterQuote);
 });
 
 
