@@ -1,0 +1,175 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0; border:none;
+ }
+
+ a {
+ 	text-decoration: none;
+ 	color: black;
+ }
+
+ body {
+ 	background-color: #C0DEED;
+ 	height: 100%;
+ }
+
+
+/*header elements*/
+ .main-header {
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ 	width: 100%;
+ 	padding: 10px;
+ 	background-color: #2c3e50;
+ 	box-shadow:0px 5px 5px #888888;
+ }
+ .header-text {
+ 	max-width: 70%;
+ 	color: white;
+ 	margin: 0 auto;
+ }
+
+
+/*form elements*/
+ #input-form {
+ 	width: 400px;
+ 	top:200px;
+ 	left: -360px;
+ 	position: absolute;
+ 	margin: 0 auto;
+ 	background-color: #8EC1DA;
+ 	overflow: hidden;
+ 	z-index: 2;
+ 	border-top-right-radius: 40px;
+ 	border-bottom-right-radius: 40px;
+	box-shadow: 5px 5px 5px #888888;
+	-webkit-transition: all .75s ease-out;
+ }
+#formQuote {
+	font-size: 12px;
+	border-radius: 4px;
+	margin: 10px;
+	height: 100px;
+	width: 300px;
+	padding: 4px;
+	background-color: white;
+	border: 1px solid gray;
+ }
+
+ #formAuthor{
+ 	font-size: 12px;
+	border-radius: 4px;
+	margin: 10px;
+	padding: 4px;
+	background-color: white;
+	border: 1px solid gray;
+ }
+
+ #input-form form {
+ 	padding: 20px 40px;
+ }
+
+#submit-button {
+	padding: 4px 15px;
+	font-size: 12px;
+	border-radius: 3px;
+	margin-left: 10px;
+	margin-top: 10px;
+	border: 1px solid gray;
+	box-shadow: 1px 1px #888888;
+	font-weight: normal;
+	background: linear-gradient(white,gray) ;
+}
+
+.slide-out {
+	position: absolute;
+	right: -30px;
+	top: 110px;
+	color: white;
+	font-weight: lighter;
+	font-size: 16px;
+	text-shadow: 1px 1px #888888;
+	-webkit-transform:rotate(90deg);
+}
+
+
+/*main container elements*/
+
+ .main-container {
+ 	margin-top: 57px;
+ 
+
+ }
+ #content {
+ 	background-color: rgba(255,255,255,.5);
+ 	max-width: 70%;
+ 	margin: 0 auto;
+ 	padding: 20px;
+ }
+
+ .quote-box {
+ 	background-color: white;
+ 	border-radius: 15px;
+ 	border: 1px solid lightgray;
+ 	padding: 10px;
+ 	position: relative;
+ 	overflow: hidden;
+ 	margin: 4px;
+ }
+
+ .float-left {
+ 	float: left;
+ }
+
+ .float-right {
+ 	float: right;
+ }
+.quote{
+	font-family: 'Nothing You Could Do', cursive;
+	font-size: 24px;
+}
+ .quote-author {
+ 	width: 80%;
+ 	padding: 10px;
+ }
+.author {
+	margin: 0;
+	padding: 8px 0 0px 15px;
+}
+.submitted-date {
+	margin: 0;
+	padding: 4px 0 4px 15px;
+	color: gray;
+	font-style: italic;
+	font-weight: lighter;
+}
+.rating-close {
+	width: 20%;
+	padding: 10px;
+	overflow: hidden;
+}
+
+.close-x {
+	position: absolute;
+	top: 6px;
+	right: 10px;
+}
+.star-rating{
+	position: absolute;
+	bottom: 6px;
+	right: 10px;
+	margin: 0px;	
+}
+
+.star-rating>li>img {
+	height: 20px;
+	width: 20px;
+
+}
+
+.inline-list {
+	display: inline-block;
+	list-style: none;
+}
+
+
