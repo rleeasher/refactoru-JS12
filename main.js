@@ -21,6 +21,7 @@ $(document).ready(function(){
 		//make the div here
 		var newQuo = $('#prototype').clone(true);
 
+		newQuo.attr('class', 'quote-box');
 		newQuo.find('.quote').text(quo.innerText);
 		newQuo.find('.author-link').text(quo.author);
 		newQuo.find('.submitted-date').text(quo.submitDate);
@@ -82,11 +83,29 @@ $(document).ready(function(){
 	};
 
 
-
-	$('#input-form').on('click',function(){
-			$(this).css('left','-20px');
-
+	//click back on submit quote
+	$('.slide-out').on('click',function(){
+		if ($(this).parent().css('left') === "-360px") {
+			$(this).parent().css('left','-20px');
+		}
+		else{
+			$(this).parent().css('left','-360px');
+		}
 	});
+
+
+	//validator
+	$('#submit-form').validate({
+		rules: {
+			formQuote: {
+				required: true
+			},
+			formAuthor: {
+				required: true
+			}
+		}
+	});
+
 
 	$(document).on('submit','#submit-form', submitInfo);
 	$(document).on('click','.close-x', deleteQuote);
