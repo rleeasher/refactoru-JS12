@@ -151,8 +151,12 @@
 
 .close-x {
 	position: absolute;
-	top: 6px;
-	right: 10px;
+	padding: 2px;
+	top: 8px;
+	right: 12px;
+	text-shadow: 1px 1px #888888;
+
+
 }
 .star-rating{
 	position: absolute;

@@ -10,8 +10,6 @@ $(document).ready(function(){
 		this.qid = qid;
 	};
 
-
-
 	var submitInfo = function(e){
 		e.preventDefault();
 		var quo = new quote();
@@ -19,8 +17,7 @@ $(document).ready(function(){
 		quo.author = $('#formAuthor').val();
 		quo.submitDate = niceDate();
 		quo.qid=(++totalQuotes);
-		// console.log(quo);
-		
+
 		//make the div here
 		var newQuo = $('#prototype').clone(true);
 
@@ -29,15 +26,13 @@ $(document).ready(function(){
 		newQuo.find('.submitted-date').text(quo.submitDate);
 		newQuo.attr('id','q'+quo.qid);
 
-		// console.log(newQuo);
-
 		$('#input-form').css('left','-360px');
 		$('#input-form').find('#formQuote').val('');
 		$('#input-form').find('#formAuthor').val('');
 		newQuo.prependTo($("#content"));
 
 	};
-	
+
 
 	var niceDate = function () {
 		var d = new Date();
