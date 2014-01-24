@@ -12,6 +12,7 @@ $(document).on('ready', function(){
 
 	var submitInfo = function(e){
 		e.preventDefault();
+		showAll();
 		var quo = new quote();
 		quo.innerText = $('#formQuote').val();
 		quo.author = $('#formAuthor').val();
@@ -64,7 +65,7 @@ $(document).on('ready', function(){
 
 		$('#content').find('[id^=qid]').slideDown(750);
 		$(this).closest('body').find('.star-container').children().attr('src','grey-star.png')
-		$('.filter-box').hide(750);
+		$('.filter-box').hide();
 
 	};
 
