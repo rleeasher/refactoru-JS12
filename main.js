@@ -45,20 +45,7 @@ $(document).on('ready', function(){
 		return newStr;
 	};
 
-	//delete quotes
-	var deleteQuote = function () {
-		var p = $(this).closest('[id^=qid]');
-		if (p.attr("id") === "prototype") {
-			return;
-		}
 
-		else {
-			p.slideUp(750,function(){ $target.remove(); });
-			console.log(p);
-		};
-
-
-	};
 
 	//show all
 	var showAll = function () {
@@ -72,9 +59,7 @@ $(document).on('ready', function(){
 	//author quotes
 	var authorQuotes = function () {
 		var author = $(this).text();
-		var authors = $(this).closest('#content').find('[id^=qid]').find('.author-link');
-		console.log(authors);
-		console.log(author);	
+		var authors = $(this).closest('#content').find('[id^=qid]').find('.author-link');	
 		for (var i = 0; i < authors.length; i++) {
 			console.log(authors[i]);
 			if (authors.eq([i]).text() === author) {
@@ -85,7 +70,7 @@ $(document).on('ready', function(){
 			};
 		};
 		$('.filter-box').find('.author-filter').text(author);
-		$('.filter-box').show(750).css('display','inline');
+		$('.filter-box').prependTo($("#content")).show(750).css('display','inline');
 
 
 	};
@@ -118,6 +103,9 @@ $(document).on('ready', function(){
 		}
 	});
 
+
+
+	//this generates a random quote
 	var randQuote = function () {
 		var randomNumber = Math.floor(Math.random()*totalQuotes+1);
 
@@ -127,9 +115,13 @@ $(document).on('ready', function(){
 		$('#content').find('.active').show();
 
 		$('.filter-box').find('.author-filter').text('Random Quote');
-		$('.filter-box').show(750).css('display','inline');
+		$('.filter-box').prependTo($("#content")).show(750).css('display','inline');
 
 	};
+	
+
+
+	//thos filters quotes based upon stars
 
 	var filterQuote = function () {
 
@@ -148,9 +140,31 @@ $(document).on('ready', function(){
 		$('#content').find('[id^=qid]').hide();
 		$('#content').find('[data-rating="s'+counter+'"]').show();
 		$('.filter-box').find('.author-filter').text(counter+' star ratings shown');
-		$('.filter-box').show(750).css('display','inline');
+		$('.filter-box').prependTo($("#content")).show(750).css('display','inline');
 
 	}
+
+	//delete quotes
+	var deleteQuote = function () {
+		$(this).closest('[id^=qid]').children().hide();
+		$('#confirmation').show().appendTo($(this).closest('[id^=qid]'));
+		// p.slideUp(750,function(){ $target.remove(); });
+	};
+
+
+	var deleteConfirm = function () {
+		$(this).closest('[id^=qid]').slideUp(750,function(){ 
+			$target.remove();
+		});
+
+	};
+
+	var undoConfirm = function () {
+		$(this).closest('[id^=qid]').children().show();
+		$(this).closest('[id^=qid]').find('#confirmation').hide();
+	};
+
+
 
 	//validator
 	$('#submit-form').validate({
@@ -173,6 +187,8 @@ $(document).on('ready', function(){
 	$(document).on('click','#close-filter', showAll);
 	$(document).on('click','#random-quote', randQuote);
 	$(document).on('click','.star-header', filterQuote);
+	$(document).on('click','.undo', undoConfirm);
+	$(document).on('click','.delete', deleteConfirm);
 });
 
 
