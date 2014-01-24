@@ -84,12 +84,7 @@ $(document).ready(function(){
 
 
 	$('#input-form').on('click',function(){
-		if ($(this).css('left')==="-360px") {
 			$(this).css('left','-20px');
-		}
-		else{
-			$(this).css('left','-360px');
-		}
 
 	});
 
