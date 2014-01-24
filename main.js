@@ -22,9 +22,9 @@ $(document).ready(function(){
 		var newQuo = $('#prototype').clone(true);
 
 		newQuo.find('.quote').text(quo.innerText);
-		newQuo.find('.author').text(quo.author);
+		newQuo.find('.author-link').text(quo.author);
 		newQuo.find('.submitted-date').text(quo.submitDate);
-		newQuo.attr('id','q'+quo.qid);
+		newQuo.attr('id','qid'+quo.qid);
 
 		$('#input-form').css('left','-360px');
 		$('#input-form').find('#formQuote').val('');
@@ -42,17 +42,61 @@ $(document).ready(function(){
 
 		return newStr;
 	};
-		
+
+	//delete quotes
+	var deleteQuote = function () {
+		var p = $(this).parent().parent();
+		if (p.attr("id") === "prototype") {
+			return;
+		}
+
+		else {
+		p.remove();
+		console.log(p);
+		};
+
+	};	
+
+	//author quotes
+	var authorQuotes = function () {
+
+	};
+
+	//rate the quote
+	var rateQuote = function () {
+
+		var clearobj = $(this).siblings(':last')
+
+		for (var i=0;i<5;i++) {
+			clearobj.find(".star").attr('src','grey-star.png');
+			clearobj = clearobj.prev();
+		}
+
+		var counter=$(this).index() + 1;
+		var obj = $(this);
+		for (var i=0;i<counter;i++) {
+			obj.find(".star").attr('src','gold-star.png');
+			obj = obj.prev();
+		}
+		console.log($(this).index());
+	};
 
 
 
 	$('#input-form').on('click',function(){
-
+		if ($(this).css('left')==="-360px") {
 			$(this).css('left','-20px');
+		}
+		else{
+			$(this).css('left','-360px');
+		}
+
 	});
 
 	$(document).on('submit','#submit-form', submitInfo);
-
+	$(document).on('click','.close-x', deleteQuote);
+	$(document).on('click','.author-link', authorQuotes);
+	$(document).on('click','.inline-list', rateQuote);
 });
 
 
