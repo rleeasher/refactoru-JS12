@@ -12,6 +12,12 @@
  }
 
 
+.remove-css {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
 /*header elements*/
  .main-header {
  	position: absolute;
@@ -104,8 +110,33 @@
 }
 
 
-/*main container elements*/
 
+
+/*filter box*/
+.filter-box {
+	display: inline;
+	background-color: white;
+	font-size: 14px;
+	border-radius: 10px;
+	padding: 4px 10px;
+	border: 1px solid lightgray;
+}
+
+#close-filter {
+	color: lightgray;
+	padding: 2px;
+	padding-left: 10px;
+
+}
+
+.author-filter {
+	font-size: 12px;
+	font-weight: bold;
+	padding-right: 12px;
+	border-right: 1px solid lightgray;
+}
+
+/*main container elements*/
 .hidden {
 	display: none;
 }
@@ -170,7 +201,6 @@
 	padding: 2px;
 	top: 8px;
 	right: 12px;
-
 
 }
 .star-rating{

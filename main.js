@@ -1,6 +1,6 @@
-$(document).ready(function(){
+$(document).on('ready', function(){
 
-	var totalQuotes = 0;
+	var totalQuotes = 6;
 
 	quote = function(innerText,author,submitDate,rating,qid){
 		this.innerText = innerText;
@@ -46,20 +46,50 @@ $(document).ready(function(){
 
 	//delete quotes
 	var deleteQuote = function () {
-		var p = $(this).parent().parent();
+		var p = $(this).closest('[id^=qid]');
 		if (p.attr("id") === "prototype") {
 			return;
 		}
 
 		else {
-		p.remove();
-		console.log(p);
+			p.slideUp(750,function(){ $target.remove(); });
+			console.log(p);
 		};
 
-	};	
+
+	};
+
+	//show all
+	var showAll = function () {
+
+		$('#content').find('[id^=qid]').slideDown(750);
+		$('.filter-box').hide(750);
+		// var authors = $('#content').find('[id^=qid]').find('.author-link');
+		// console.log(authors.length);
+		// for (var i = 0; i < authors.length; i++) {
+		// 	authors.eq([i]).closest('[id^=qid]').show();
+		// };
+
+	};
 
 	//author quotes
 	var authorQuotes = function () {
+		var author = $(this).text();
+		var authors = $(this).closest('#content').find('[id^=qid]').find('.author-link');
+		console.log(authors);
+		console.log(author);	
+		for (var i = 0; i < authors.length; i++) {
+			console.log(authors[i]);
+			if (authors.eq([i]).text() === author) {
+				authors.eq([i]).closest('[id^=qid]').slideDown(750);
+			}
+			else {
+				authors.eq([i]).closest('[id^=qid]').slideUp(750);
+			};
+		};
+		$('.filter-box').find('.author-filter').text(author);
+		$('.filter-box').show(750).css('display','inline');
+
 
 	};
 
@@ -68,12 +98,15 @@ $(document).ready(function(){
 
 		var clearobj = $(this).siblings(':last')
 
+
 		for (var i=0;i<5;i++) {
 			clearobj.find(".star").attr('src','grey-star.png');
 			clearobj = clearobj.prev();
 		}
 
 		var counter=$(this).index() + 1;
+
+
 		var obj = $(this);
 		for (var i=0;i<counter;i++) {
 			obj.find(".star").attr('src','gold-star.png');
@@ -111,6 +144,8 @@ $(document).ready(function(){
 	$(document).on('click','.close-x', deleteQuote);
 	$(document).on('click','.author-link', authorQuotes);
 	$(document).on('click','.inline-list', rateQuote);
+	$(document).on('click','#header-link', showAll);
+	$(document).on('click','#close-filter', showAll);
 });
 
 

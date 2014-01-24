@@ -17,7 +17,7 @@
   <body>
   <!-- main header -->
   <div class="main-header">
-    <h1 class="header-text"><a href="#">Quottr</a></h1>
+    <h1 class="header-text"><a id='header-link' href="#">Quottr</a></h1>
   </div>
   <!-- dropdown form -->
   <div id="input-form">
@@ -36,12 +36,17 @@
   <!-- begin main content area -->
   <div class="main-container">
     <div id="content">
+
+    <div class = "filter-box hidden">
+      <span class = "remove-css author-filter">Jack Handy</span><a href="#" id="close-filter">x</a>
+    </div>
+
       <div class="quote-box hidden" id="prototype">
         <div class = "quote-author float-left">
           <q class="quote">
             Children need encouragement. So if a kid gets an answer right, tell him it was a lucky guess. That way, he develops a good, lucky feeling.
           </q>
-          <h5 class="author"><span>-</span><a class="author-link" href="#">Jack Handey</a></h5>
+          <h5 class="author"><span>-</span><a class="author-link" href="#">Jack Handy</a></h5>
           <h6 class="submitted-date">Jan 23 2014</h6>
         </div>
         <div class= "rating-close float-right">
@@ -57,12 +62,13 @@
       </div>
 
       <!-- visible base ones -->
-      <div class="quote-box">
+      <!-- quote 1 -->
+      <div class="quote-box" id="qid-1">
         <div class = "quote-author float-left">
           <q class="quote">
             Children need encouragement. So if a kid gets an answer right, tell him it was a lucky guess. That way, he develops a good, lucky feeling.
           </q>
-          <h5 class="author"><span>-</span><a class="author-link" href="#">Jack Handey</a></h5>
+          <h5 class="author"><span>-</span><a class="author-link" href="#">Jack Handy</a></h5>
           <h6 class="submitted-date">Jan 23 2014</h6>
         </div>
         <div class= "rating-close float-right">
@@ -72,6 +78,111 @@
             <li class="inline-list"><img class="star" src="gold-star.png"></li>
             <li class="inline-list"><img class="star" src="gold-star.png"></li>
             <li class="inline-list"><img class="star" src="grey-star.png"></li>
+            <li class="inline-list"><img class="star" src="grey-star.png"></li>
+          </ul>
+        </div>
+      </div>
+
+       <!-- quote 2 -->
+      <div class="quote-box" id="qid-2">
+        <div class = "quote-author float-left">
+          <q class="quote">
+            I may be drunk, Miss, but in the morning I will be sober and you will still be ugly.
+          </q>
+          <h5 class="author"><span>-</span><a class="author-link" href="#">Winston Churchill</a></h5>
+          <h6 class="submitted-date">Jan 24 2014</h6>
+        </div>
+        <div class= "rating-close float-right">
+          <a href="#" class="close-x">x</a>
+          <ul class="star-rating">
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+            <li class="inline-list"><img class="star" src="grey-star.png"></li>
+            <li class="inline-list"><img class="star" src="grey-star.png"></li>
+          </ul>
+        </div>
+      </div>
+
+       <!-- quote 3 -->
+      <div class="quote-box" id="qid-3">
+        <div class = "quote-author float-left">
+          <q class="quote">
+            You can always count on Americans to do the right thing - after they've tried everything else.
+          </q>
+          <h5 class="author"><span>-</span><a class="author-link" href="#">Winston Churchill</a></h5>
+          <h6 class="submitted-date">Jan 24 2014</h6>
+        </div>
+        <div class= "rating-close float-right">
+          <a href="#" class="close-x">x</a>
+          <ul class="star-rating">
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+            <li class="inline-list"><img class="star" src="grey-star.png"></li>
+          </ul>
+        </div>
+      </div>
+
+             <!-- quote 4 -->
+      <div class="quote-box" id="qid-4">
+        <div class = "quote-author float-left">
+          <q class="quote">
+            We become what we behold. We shape our tools and then our tools shape us.
+          </q>
+          <h5 class="author"><span>-</span><a class="author-link" href="#">Marshall McLuhan</a></h5>
+          <h6 class="submitted-date">Jan 24 2014</h6>
+        </div>
+        <div class= "rating-close float-right">
+          <a href="#" class="close-x">x</a>
+          <ul class="star-rating">
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+            <li class="inline-list"><img class="star" src="grey-star.png"></li>
+          </ul>
+        </div>
+      </div>
+
+                   <!-- quote 5 -->
+      <div class="quote-box" id="qid-5">
+        <div class = "quote-author float-left">
+          <q class="quote">
+            Diaper backward spells repaid. Think about it.
+          </q>
+          <h5 class="author"><span>-</span><a class="author-link" href="#">Marshall McLuhan</a></h5>
+          <h6 class="submitted-date">Jan 24 2014</h6>
+        </div>
+        <div class= "rating-close float-right">
+          <a href="#" class="close-x">x</a>
+          <ul class="star-rating">
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+          </ul>
+        </div>
+      </div>
+
+                         <!-- quote 6 -->
+      <div class="quote-box" id="qid-6">
+        <div class = "quote-author float-left">
+          <q class="quote">
+            If you go parachuting, and your parachute doesn't open, and you friends are all watching you fall, I think a funny gag would be to pretend you were swimming.
+          </q>
+          <h5 class="author"><span>-</span><a class="author-link" href="#">Jack Handy</a></h5>
+          <h6 class="submitted-date">Jan 24 2014</h6>
+        </div>
+        <div class= "rating-close float-right">
+          <a href="#" class="close-x">x</a>
+          <ul class="star-rating">
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
+            <li class="inline-list"><img class="star" src="gold-star.png"></li>
             <li class="inline-list"><img class="star" src="grey-star.png"></li>
           </ul>
         </div>
