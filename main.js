@@ -140,16 +140,33 @@ $(document).on('ready', function(){
 		$(this).closest('[id^=qid]').find('#confirmation').hide();
 	};
 
-	//hover stars
+	//hover stars filter
 	var hoverStars = function () {
 		var number = $(this).index()+1;
 		$(this).closest('.star-container').find('.star-header:lt('+number+')').attr('src','gold-star.png');
-
 	};
 
 	var mouseOut = function () {
-		$(this).attr('src','grey-star.png');
+		var number = $(this).index();
+		$(this).closest('.star-container').find('.star-header:gt('+number+')').attr('src','grey-star.png');
 	}
+	//hover stars quotes
+	var hoverQuoteStars = function () {
+		var number = $(this).index()+1;
+		$(this).closest('.star-rating').find('.star:lt('+number+')').attr('src','gold-star.png');
+	};
+
+	var quoteMouseOut = function () {
+		var strCounter = $(this).closest('[id^=qid]').attr('data-rating');
+		var counter = parseInt(strCounter.substring(1,2));
+		
+		for (var i=0;i<counter;i++) {
+			obj.find(".star").attr('src','gold-star.png');
+			obj = obj.prev();
+		}
+		console.log(counter);
+	}
+
 
 	//validator
 	$('#submit-form').validate({
@@ -174,6 +191,9 @@ $(document).on('ready', function(){
 	$(document).on('click','.star-header', filterQuote);
 	$(document).on('mouseover','.star-header', hoverStars);
 	$(document).on('mouseout','.star-header', mouseOut);
+
+	$(document).on('mouseover','.inline-list', hoverQuoteStars);
+	$(document).on('mouseout','.inline-list', quoteMouseOut);
 	$(document).on('click','.undo', undoConfirm);
 	$(document).on('click','.delete', deleteConfirm);
 });
