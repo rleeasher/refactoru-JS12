@@ -27,6 +27,7 @@ $(document).on('ready', function(){
 		newQuo.find('.author-link').text(quo.author);
 		newQuo.find('.submitted-date').text(quo.submitDate);
 		newQuo.attr('id','qid'+quo.qid);
+		newQuo.attr('data-rating','s'+1);
 
 		$('#input-form').css('left','-360px');
 		$('#input-form').find('#formQuote').val('');
@@ -131,7 +132,9 @@ $(document).on('ready', function(){
 
 	var deleteConfirm = function () {
 		$(this).closest('[id^=qid]').slideUp(750,function(){ 
-			$target.remove();
+			$('#confirmation').hide().appendTo($('#content'));
+			$(this).remove();
+			// console.log(this);
 		});
 	};
 
@@ -144,11 +147,11 @@ $(document).on('ready', function(){
 	var hoverStars = function () {
 		var number = $(this).index()+1;
 		$(this).closest('.star-container').find('.star-header:lt('+number+')').attr('src','gold-star.png');
+		$(this).closest('.star-container').find('.star-header:gt('+number+')').attr('src','grey-star.png');
 	};
 
 	var mouseOut = function () {
-		var number = $(this).index();
-		$(this).closest('.star-container').find('.star-header:gt('+number+')').attr('src','grey-star.png');
+		$(this).closest('.star-container').find('.star-header').attr('src','grey-star.png');
 	}
 	//hover stars quotes
 	var hoverQuoteStars = function () {
@@ -158,13 +161,8 @@ $(document).on('ready', function(){
 
 	var quoteMouseOut = function () {
 		var strCounter = $(this).closest('[id^=qid]').attr('data-rating');
-		var counter = parseInt(strCounter.substring(1,2));
-		
-		for (var i=0;i<counter;i++) {
-			obj.find(".star").attr('src','gold-star.png');
-			obj = obj.prev();
-		}
-		console.log(counter);
+		var counter = parseInt(strCounter.substring(1,2))-1;
+		$(this).closest('.star-rating').find('.star:gt('+counter+')').attr('src','grey-star.png');
 	}
 
 
@@ -189,6 +187,7 @@ $(document).on('ready', function(){
 	$(document).on('click','#close-filter', showAll);
 	$(document).on('click','#random-quote', randQuote);
 	$(document).on('click','.star-header', filterQuote);
+
 	$(document).on('mouseover','.star-header', hoverStars);
 	$(document).on('mouseout','.star-header', mouseOut);
 
